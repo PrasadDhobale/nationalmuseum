@@ -73,7 +73,7 @@ if(isset($_POST['setFeesBtn'])){
             </div>
         </div>   
         <div class="col">
-            <div class="card border-warning mb-3" style="max-width: 23rem; cursor: pointer">
+            <div class="card border-warning mb-3" onclick="location.href = 'security_registration.php'" style="max-width: 23rem; cursor: pointer">
                 <div class="card-header">Securiy</div>
                 <div class="card-body text-warning">
                     <h5 class="card-title">Add Security</h5>
