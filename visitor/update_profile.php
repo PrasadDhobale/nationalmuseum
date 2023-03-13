@@ -48,7 +48,7 @@ if(isset($_POST['update']) && isset($_POST['fname']) && isset($_POST['mname']) &
 
 <div class="container shadow mt-5 p-5">
 <h2><i class="fa fa-edit"></i> Update Profile</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="form" enctype="multipart/form-data">
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form" enctype="multipart/form-data">
         <div class="mt-3">
             <label for="id">Visitor ID <i class="text-warning">(Don't edit this field.)</i></label>
             <input type="text" name="id" value="<?php echo $_SESSION['visitor']['visitor_id']; ?>" disable class="form-control" readonly>

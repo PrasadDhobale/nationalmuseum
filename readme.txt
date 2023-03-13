@@ -1,9 +1,9 @@
-if admin want to schedule special slot then he have to schedule it before 15 days of schedule date.
+If admin want to schedule special slot then he have to schedule it before 15 days of schedule date.
 Admin can schedule the special slot after the current_date + 15 except next 1 month.
 
 
 While selecting date for visit 
-If the selected date is special day scheduled. then it will give priority to te schedules slots.
+If the selected date is special day scheduled. then it will give priority to the schedules slots.
 
 special schedule is only for one day so the availability is global for all.
 
