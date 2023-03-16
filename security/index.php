@@ -36,17 +36,17 @@ if(isset($_SESSION['security_login'])){
             </div>
         </nav>
         <div class="container mt-5 p-5 shadow">
-            <h2>Follow Given Steps While security Entering and Exists.</h2>
+            <h2>Follow Given Steps While Visitor Entering and Exists.</h2>
             <hr>
             <ol>
-                <li><p class="p-1 text-danger fw-bold">Scan QR Code OF security Booking.</p></li>    
-                <li><p class="p-1">Verify the security with the Uploaded ID Proof.</p></li>
-                <li><p class="p-1">Check the <b>Slot ID</b> with <b>Slot Number</b>.</p></li>
-                <li><p class="p-1">Count the Number of members with the security.</p></li>
-                <li><p class="p-1">Check Visit date is same as current date.</p></li>
+                <li><p class="p-1 text-danger fw-bold">Scan QR code of visitor's booking by any scanner and open link in browser.</p></li>    
+                <li><p class="p-1">Verify visitors with the uploaded ID proof.</p></li>
+                <li><p class="p-1">Check the <b>slot ID</b> with <b>slot number</b>.</p></li>
+                <li><p class="p-1">Count the number of members with the visitor.</p></li>
+                <li><p class="p-1">Check visit date is same as current date.</p></li>
                 <li><p class="p-1 fw-bold">Verify Checkin and Checkout Status is NA.</p></li>
-                <li><p class="p-1">While entering click the checkin button and Say <b>Welcome</b> to securitys.</p></li>
-                <li><p class="p-1">While exiting click the checkout button and Say <b>Thanks visit again</b> to securitys.</p></li>
+                <li><p class="p-1">While entering click the checkin button and Say <b>"Welcome"</b> to visitors.</p></li>
+                <li><p class="p-1">While exiting click the checkout button and Say <b>"Thanks, visit again..!"</b> to vistors.</p></li>
                 <li><p class="p-1">If any emergency, urgently contact to the Admin.</p></li>
             </ol>
         </div>
