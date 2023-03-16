@@ -41,6 +41,7 @@ if(isset($_POST['register'])){
 }
 
 if(isset($_POST['update'])){
+    
     $u_id = $_POST['sec_id'];
     $u_email = $_POST['sec_email'];
     $u_name = $_POST['sec_name'];
@@ -54,6 +55,7 @@ if(isset($_POST['update'])){
         $password = $u_passwd;
         $email = $u_email;
         $role = "password";
+ 
         ob_start();
         include '../send_Login_cred.php';
         $subject = "National Museum [Updated - Login Credentials For Security ID : '$sec_id']";
@@ -64,6 +66,18 @@ if(isset($_POST['update'])){
         echo "<script>alert('Something Went Wrong Try Again..!')</script>";
     }
 }
+
+if(isset($_POST['del_button'])){
+    $sec_id = $_POST['del_sec_id'];
+    $del_query = "delete from security where sec_id = '$sec_id'";
+    mysqli_query($con, $del_query);
+    if($con->affected_rows > 0){
+        echo "<script>alert('Security Deleted Successfully')</script>";
+    }else{
+        echo "<script>alert('Something Went Wrong..!')</script>";
+    }
+}
+
 
 ?>
 
@@ -120,7 +134,7 @@ if(isset($_POST['update'])){
                     <th>Mobile</th>
                     <th>Reg Time</th>
                 </tr>
-                
+
                 <?php
                     $get_sec_query = "select *from security";
                     $securities = mysqli_query($con, $get_sec_query);
@@ -131,7 +145,7 @@ if(isset($_POST['update'])){
                                 <td><?php echo $security['sec_id']; ?></td>
                                 <td>
                                     <a href="?sec_id=<?php echo $security['sec_id']; ?>"><i class="text-success fa fa-edit"></i></a>
-                                    <i class="text-danger fa fa-trash"></i>
+                                    <i class="text-danger fa fa-trash" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-sec_id="<?php echo $security['sec_id']; ?>"></i>                                    
                                 </td>
                                 <td><?php echo $security['sec_name']; ?></td>
                                 <td><?php echo $security['sec_email']; ?></td>
@@ -148,5 +162,45 @@ if(isset($_POST['update'])){
             </table>
         </div>
     </div>
+    
+  
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="test-danger">Are you sure to delete the Security ?</p>                
+                
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                    <input type="hidden" name="del_sec_id" class="form-control" id="sec_id">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="submit" name="del_button" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var deleteModal = document.getElementById('deleteModal')
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+        
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-sec_id')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = deleteModal.querySelector('.modal-title')
+        var modalBodyInput = deleteModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'Security ID : ' + recipient
+        modalBodyInput.value = recipient
+        })
+    </script>
 </body>
 </html>
