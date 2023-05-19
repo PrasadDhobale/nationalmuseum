@@ -54,7 +54,7 @@
                     <a class="nav-link" href="/museum/gallery"><b>Gallery</b></a>
                     <a class="nav-link" href="/museum/login.php"><b>Book Now..!</b></a>
                     <a class="nav-link" href="/museum/admin.php"><b>Admin</b></a>
-                    <a class="nav-link" href="/museum/security.php"><b>Security</b></a>
+                    <a class="nav-link" href="/museum/security.php"><b>Security Guard</b></a>
                 </div>
             </div>
             <a href="/museum#contact"><button class="btn btn-outline-success my-2 my-sm-0">Contact</button></a>

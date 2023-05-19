@@ -1,12 +1,5 @@
 <?php include"navbar.php"; ?>
-    
-    <style>
-        body{
-            background-image: url("svg/fp.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
+        
     <div class="container p-4 mt-5 mb-5 shadow border rounded">
     <p class="text-primary m-5 text-center fs-1"><b>Forgot Password</b></p>
         <?php

@@ -177,8 +177,7 @@ if(isset($_POST['chk_availability'])){
                 </div>
                 Total Fees : <b><?php echo $_SESSION['fees'] * $_POST['no_of_members']; ?></b>
             </p>
-            <input type="hidden" name="visitor_name" value = "<?php echo $_SESSION['visitor']['visitor_fname']." ".$_SESSION['visitor']['visitor_mname']. " ". $_SESSION['visitor']['visitor_lname']; ?>">
-            <input type="hidden" name="visitor_phone" value="<?php echo $_SESSION['visitor']['visitor_phone'] ?>">
+            <input type="hidden" name="visitor_name" value = "<?php echo $_SESSION['visitor']['visitor_fname']. " ". $_SESSION['visitor']['visitor_lname']; ?>">            
             <input type="hidden" name="visitor_id" value = "<?php echo $_SESSION['visitor']['visitor_id'] ?>">
             <input type="hidden" name="visitor_email" value = "<?php echo $_SESSION['visitor']['visitor_email'] ?>">
             <button type="submit" name="pay_fees" class="btn btn-outline-primary">Pay Fees</button>
@@ -241,7 +240,7 @@ if(isset($_POST['chk_availability'])){
                             <input type="text" name="member1" placeholder="Enter member name" title="Enter Only Characters" pattern="^[A-Za-z ]+$" id="member1" maxlength="100" required class="form-control mb-3">
                             <input type="text" name="memberAge1" placeholder="Enter member Age" title="Enter Only Numbers" pattern="^[0-9]+$" id="age1" min="6" max="100" required class="form-control mb-3">
                             <input type="radio" name="memberGender1" value="male" title="Male" class="fs-2 fa fa-male btn btn-outline-info form-check-input mx-3" checked>
-                            <input type="radio" name="memberGender1" value="female" title="Female" class="fs-2 fa fa-male btn btn-outline-info form-check-input mx-3">
+                            <input type="radio" name="memberGender1" value="female" title="Female" class="fs-2 fa fa-female btn btn-outline-info form-check-input mx-3">
                         </div>
                     </div>
                     <div class="modal-footer my-2">

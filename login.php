@@ -2,7 +2,7 @@
     
     <style>
         body{
-            background-image: url("svg/login.svg");
+            /* background-image: url("svg/login.svg"); */
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;

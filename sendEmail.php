@@ -22,10 +22,11 @@
     //Email Settings
     $mail->isHTML(true);
     $mail->setFrom($email);
-    $mail->addAddress($email);
     if($role == "contact_form"){
-        $mail->setFrom("prasaddhobale3@gmail.com");
-        $mail->addAddress("prasaddhobale3@gmail.com");
+        $mail->setFrom("dhobaleprasad3@gmail.com");
+        $mail->addAddress("dhobaleprasad3@gmail.com");
+    }else{
+        $mail->addAddress($email);
     }
     $mail->Subject = $subject;
     $mail->Body = $body;

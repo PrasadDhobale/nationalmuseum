@@ -8,7 +8,7 @@ if(isset($_POST['loginBtn']) && isset($_POST['csrf_security']) && ($_SESSION['cs
     $sec_id = $_POST['sec_id'];
     $sec_passwd = $_POST['sec_passwd'];
 
-    $fetch_security_query = "select * from security where sec_id = '$sec_id' and sec_passwd = '$sec_passwd'";
+    $fetch_security_query = "select * from security where sec_email = '$sec_id' and sec_passwd = '$sec_passwd'";
     $security = mysqli_query($con, $fetch_security_query)->fetch_assoc();
     
     if($con->affected_rows > 0){

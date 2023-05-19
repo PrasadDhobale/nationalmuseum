@@ -13,20 +13,13 @@ if(isset($_SESSION['id'])){
     $row = mysqli_query($con, $get_profile_query)->fetch_assoc();
     $_SESSION['visitor'] = array(
         "visitor_id" => $row['visitor_id'],
-        "visitor_country" => $row['visitor_country'],
         "visitor_id_proof" => $row['visitor_id_proof'],
         "visitor_id_proof_img" => $row['visitor_id_proof_img'],
         "visitor_email" => $row['visitor_email'],
         "visitor_passwd" => $row['visitor_passwd'],
-        "visitor_phone" => $row['visitor_mob_no'],
         "visitor_fname" => $row['visitor_fname'],
-        "visitor_mname" => $row['visitor_mname'],
-        "visitor_lname" => $row['visitor_lname'],                
-        "visitor_gender" => $row['visitor_gender'],
-        "visitor_dob" => $row['visitor_dob'],
-        "visitor_address" => $row['visitor_address'],
+        "visitor_lname" => $row['visitor_lname'],
         "visitor_evs" => $row['evs'],
-        "visitor_mvs" => $row['mvs'],
         "reg_time" => $row['reg_time']
     );
 

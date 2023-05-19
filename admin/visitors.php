@@ -17,121 +17,22 @@ if(isset($_POST['remove_id'])){
 
 
 // Get all visitors profile whose email and phone is verified (Non Indian dont require phone verification)
-$get_visitor_query = "select *from visitors where (visitor_country = 'India' and evs = 'Active' and mvs = 'Active') or (evs = 'Active') order by reg_time";
+$get_visitor_query = "select *from visitors where evs = 'Active' order by reg_time";
 $visitors = mysqli_query($con, $get_visitor_query);
-
-
-// Get Genders and ages
-
-$filter_visitors_query = "select visitor_gender, visitor_dob from visitors";
-$filtered_visitors = mysqli_query($con, $filter_visitors_query);
-
-$male = $female = 0;
-$age[] = 0;
-$i = 0;
-while($visitor = $filtered_visitors->fetch_assoc()){
-
-    if($visitor['visitor_gender'] == "male")
-        $male = $male + 1;
-    if($visitor['visitor_gender'] == "female")
-        $female = $female + 1;
-    
-    $age[$i] = date_diff(date_create($visitor['visitor_dob']), date_create(date('Y-m-d', strtotime($dt))));
-    $i++;
-}
-
-$gender = array( 
-    array("label"=>"male", "y"=>$male/($male + $female) * 100),
-    array("label"=>"Female", "y"=>$female/($male + $female) * 100),
-);
-
-$under_18 = $under_50 = $under_100 = 0;
-for($i=0; $i<sizeof($age); $i++){
-
-    if($age[$i]->format("%y")+1 >= 6 && $age[$i]->format("%y")+1 <= 18)
-        $under_18++;
-    if($age[$i]->format("%y")+1 > 18 && $age[$i]->format("%y")+1 <= 50)
-        $under_50++;
-    if($age[$i]->format("%y")+1 > 50 && $age[$i]->format("%y")+1 <= 100)
-        $under_100++;
-}
-
-$age_filter = array(    
-    array("label"=>"06 - 18", "y"=>$under_18/sizeof($age) * 100),
-    array("label"=>"19 - 50", "y"=>$under_50/sizeof($age) * 100),
-    array("label"=>"51 - 100", "y"=>$under_100/sizeof($age) * 100),
-);
 
 ?>
 
-    <script>
-        window.onload = function() {
-
-            var chart = new CanvasJS.Chart("genderPieChart", {
-                theme: "light2",
-                animationEnabled: true,
-                title: {
-                    text: "Gender Of Visitors"
-                },
-                data: [{
-                    type: "pie",
-                    indexLabel: "{y}",
-                    yValueFormatString: "#,##0.00\"%\"",
-                    indexLabelPlacement: "inside",
-                    indexLabelFontColor: "#36454F",
-                    indexLabelFontSize: 18,
-                    indexLabelFontWeight: "bolder",
-                    showInLegend: true,
-                    legendText: "{label}",
-                    dataPoints: <?php echo json_encode($gender, JSON_NUMERIC_CHECK); ?>
-                }]
-            });
-
-            chart.render();
-            var chart1 = new CanvasJS.Chart("agePieChart", {
-                theme: "light2",
-                animationEnabled: true,
-                title: {
-                    text: "Age Of Visitors"
-                },
-                data: [{
-                    type: "pie",
-                    indexLabel: "{y}",
-                    yValueFormatString: "#,##0.00\"%\"",
-                    indexLabelPlacement: "inside",
-                    indexLabelFontColor: "#36454F",
-                    indexLabelFontSize: 18,
-                    indexLabelFontWeight: "bolder",
-                    showInLegend: true,
-                    legendText: "{label}",
-                    dataPoints: <?php echo json_encode($age_filter, JSON_NUMERIC_CHECK); ?>
-                }]
-            });
-            chart1.render();        
-        }
-    </script>
-
-    <div class="container mt-5 row g-3">
-        <div id="genderPieChart" style="height: 370px; width: 100%;" class="col"></div>
-        <div id="agePieChart" style="height: 370px; width: 100%;" class="col"></div>
-    </div>
-
-<p class="text-info m-4 fs-5"><b>India : Verified Email and Phone <br>Other Countries : Verified Email</b></p>
+<h1 class="text-info m-4"><b>Email Verified Users</b></h1>
 <div class="table-responsive">
     <table class="table table-hover">
     <tr class="bg-primary">
             <th>Visitor ID</th>
             <th>Action</th>
-            <th>Country</th>
             <th>Name</th>
             <th>ID Proof</th>
             <th>Image</th>
-            <th>Gender</th>
-            <th>DOB</th>
-            <th>Address</th>
             <th>Email</th>
             <th>Password</th>
-            <th>Phone</th>
             <th>Time</th>
         </tr>
         <?php
@@ -142,17 +43,14 @@ $age_filter = array(
                     <td>
                         <button class="btn btn-outline-danger" data-bs-visitor_id="<?php echo $visitor['visitor_id']; ?>" data-bs-toggle="modal" data-bs-target="#removeVisitor_Modal"><i class="fa fa-trash"></i></button>
                     </td>
-                    <td><?php echo $visitor['visitor_country']; ?></td>
-                    <td><?php echo $visitor['visitor_fname']." ".$visitor['visitor_mname']. " ". $visitor['visitor_lname']; ?></td>
+                    <td><?php echo $visitor['visitor_fname']. " ". $visitor['visitor_lname']; ?></td>
                     <td><?php echo $visitor['visitor_id_proof']; ?></td>
                     <td  data-bs-img="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($visitor['visitor_id_proof_img']); ?>" data-bs-toggle="modal" data-bs-target="#id_proof_img_Modal"><p class="text-info" style="cursor:pointer;">Show <i class="fa fa-eye"></i></p></td>                    
-                    <td><?php echo $visitor['visitor_gender']; ?></td>
-                    <td><?php echo $visitor['visitor_dob']; ?></td>
-                    <td><?php echo $visitor['visitor_address']; ?></td>
+
                     <td><?php echo $visitor['visitor_email']; ?></td>
                     
                     <td><?php echo $visitor['visitor_passwd']; ?></td>
-                    <td><?php echo $visitor['visitor_mob_no']; ?></td>                    
+
                     <td><?php echo date("d-M-y H:i", strtotime($visitor['reg_time'])); ?></td>
                 </tr>
                 <?php

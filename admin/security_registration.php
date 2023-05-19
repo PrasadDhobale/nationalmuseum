@@ -92,7 +92,7 @@ if(isset($_POST['del_button'])){
             <?php
         }else{
             ?>
-                <h2 class="text-info m-4 text-center">Register Security</h2>
+                <h2 class="text-info m-4 text-center">Register Security Guard</h2>
             <?php
         }
         ?>

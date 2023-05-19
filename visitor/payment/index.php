@@ -17,7 +17,6 @@ $api = new Api($keyId, $keySecret);
 if(isset($_POST['pay_fees'])){
   $visitor_name = $_POST['visitor_name'];
   $email = $_POST['visitor_email'];
-  $phone = $_POST['visitor_phone'];
 
   $_SESSION['email'] = $email;
   $total_fees = $_SESSION['fees'] * $_SESSION['no_of_members'];  
@@ -53,7 +52,6 @@ if(isset($_POST['pay_fees'])){
       "prefill"           => [
       "name"              => $visitor_name,
       "email"             => $email,
-      "contact"           => $phone,
       ],
       "notes"             => [
       "address"           => "National Museum Entry Fees",
@@ -134,7 +132,6 @@ if(isset($_POST['pay_fees'])){
         data-description="<?php echo $data['description']?>"
         data-prefill.name="<?php echo $data['prefill']['name']?>"
         data-prefill.email="<?php echo $data['prefill']['email']?>"
-        data-prefill.contact="<?php echo $data['prefill']['contact']?>"
         data-order_id="<?php echo $data['order_id']?>"
         <?php if ($displayCurrency !== 'INR') { ?> data-display_amount="<?php echo $data['display_amount']?>" <?php } ?>
         <?php if ($displayCurrency !== 'INR') { ?> data-display_currency="<?php echo $data['display_currency']?>" <?php } ?>

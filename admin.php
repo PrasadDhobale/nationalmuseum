@@ -6,7 +6,7 @@ $_SESSION['csrf_admin'] = $csrf_admin;
 ?>
 <style>
         body{
-            background-image: url("svg/admin.svg");
+            /* background-image: url("svg/admin.svg"); */
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;

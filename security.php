@@ -6,7 +6,7 @@ $_SESSION['csrf_security'] = $csrf_security;
 ?>
 <style>
         .container{
-            background-image: url("security.png");
+            /* background-image: url("security.png"); */
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;

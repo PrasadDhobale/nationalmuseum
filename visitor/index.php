@@ -20,31 +20,8 @@
             <div class="card text-white bg-info mb-3" id="mv" style="max-width: 23rem; cursor: pointer">
                 <div class="card-header">Verification</div>
                 <div class="card-body">
-                    <?php
-                        if($_SESSION['visitor']['visitor_country'] == "India"){
-                            if($_SESSION['visitor']['visitor_mvs'] != "Active"){
-                                ?>
-                                    <h5 class="card-title"><form action="sendMv.php" method="post"><button name="sendMv" type="submit" value="true" class="btn btn-primary">Send Phone Verification</button></form></h5>
-                                    <p class="card-text">It is mandatory to verify your phone number.</p>
-                                    <script>
-                                        document.getElementById("mv").classList.add("bg-danger");
-                                    </script>
-                                <?php
-                            }else{
-                                ?>
-                                    <h5 class="card-title">Phone No : Verified</h5>
-                                    <script>
-                                        document.getElementById("mv").classList.add("bg-success");
-                                    </script>
-                                <?php
-                            }
-                        }else{
-                            ?>
-                                <h5 class="card-title">Phone No : Not Required</h5>
-                            <?php
-                        }
-                    ?>
-                    <h5>Email ID : Verified</h5>                    
+                    <p class="card-text">Email Verification Status.</p>                    
+                    <h5 class="pb-3">Email ID : Verified</h5>
                 </div>
             </div>
         </div>
@@ -67,34 +44,6 @@
                 </div>
             </div>
         </div>
-        <!-- 
-        <div class="col">
-            <div class="card text-dark bg-info mb-3" style="max-width: 23rem; cursor: pointer">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Info card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-dark bg-light mb-3" style="max-width: 23rem; cursor: pointer">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card text-white bg-dark mb-3" style="max-width: 23rem; cursor: pointer">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>     -->
     </div>
 
     <!-- Show Profile Modal -->
@@ -112,10 +61,6 @@
                         <td><?php echo $_SESSION['visitor']['visitor_id']; ?></td>
                     </tr>
                     <tr>
-                        <th>Country</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_country']; ?></td>
-                    </tr>
-                    <tr>
                         <th>ID Proof</th>
                         <td><?php echo $_SESSION['visitor']['visitor_id_proof']; ?></td>
                     </tr>
@@ -127,7 +72,7 @@
                     </tr>
                     <tr>
                         <th>Name</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_fname']. " ". $_SESSION['visitor']['visitor_mname']." ".$_SESSION['visitor']['visitor_lname']; ?></td>
+                        <td><?php echo $_SESSION['visitor']['visitor_fname']. " ".$_SESSION['visitor']['visitor_lname']; ?></td>
                     </tr>
                     <tr>
                         <th>Email ID</th>
@@ -136,26 +81,6 @@
                     <tr>
                         <th>Password</th>
                         <td><?php echo $_SESSION['visitor']['visitor_passwd']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Phone No</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_phone']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Gender</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_gender']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>DOB</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_dob']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Email ID</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_evs']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Phone No</th>
-                        <td><?php echo $_SESSION['visitor']['visitor_mvs']; ?></td>
                     </tr>
                     <tr>
                         <th>Reg Time</th>
@@ -169,7 +94,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 
 <!-- History Modal -->
@@ -218,5 +143,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

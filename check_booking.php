@@ -118,7 +118,7 @@ if(isset($_GET['id'])){
                                 if($booking['checkin'] != "-"){                                
                                     echo date("d-M-Y H:i", strtotime($booking['checkin']));
                                 }else{
-                                    if(isset($_SESSION['admin_login']) || isset($_SESSION['security_login'])){
+                                    if(isset($_SESSION['security_login'])){
                                         ?>
                                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                                             <input type="hidden" name='sec_id' value="<?php echo $_SESSION['security']['sec_id']; ?>">
@@ -146,7 +146,7 @@ if(isset($_GET['id'])){
                                 if($booking['checkout'] != "-"){                                
                                     echo date("d-M-Y H:i", strtotime($booking['checkin']));
                                 }else{
-                                    if(isset($_SESSION['admin_login']) || isset($_SESSION['security_login'])){
+                                    if(isset($_SESSION['security_login'])){
                                         ?>
                                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                                             <input type="hidden" name='sec_id' value="<?php echo $_SESSION['security']['sec_id']; ?>">
