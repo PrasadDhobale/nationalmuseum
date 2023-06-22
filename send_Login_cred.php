@@ -16,8 +16,8 @@
                 Your National Museum Login Credentials are<br><br> <b>Email ID : <?php echo $email; ?><br> Password : <?php echo $password; ?></b><br><br>
                 Wish you have a nice Day..!<br><br>
             </p>
-            <div style="text-align: center;">
-                <a href="http://localhost/museum"><button style="background-color:#2965ff; padding:5%; border-radius: 10px; border: 5px solid #03fcd3; font-size: 25px; cursor:pointer; font-weight:bold;padding:1%;color:white;">Continue</button></a>
+            <div style="text-align: center;">            
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/museum"><button style="background-color:#2965ff; padding:5%; border-radius: 10px; border: 5px solid #03fcd3; font-size: 25px; cursor:pointer; font-weight:bold;padding:1%;color:white;">Continue</button></a>
             </div>            
         </div>
     </div>

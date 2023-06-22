@@ -63,10 +63,10 @@
                 </tr>
             </table>
             <br>
-            <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http://localhost/museum/check_booking.php?id=<?php echo $booking_id;?>&amp;qzone=1&amp;margin=0&amp;size=150x150&amp;ecc=L" alt="qr code" />
+            <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http://<?php echo $_SERVER['HTTP_HOST']; ?>/museum/check_booking.php?id=<?php echo $booking_id;?>&amp;qzone=1&amp;margin=0&amp;size=150x150&amp;ecc=L" alt="qr code" />
             </p>
             <div style="text-align: center;">
-                <a href="http://localhost/museum/check_booking.php?id=<?php echo $booking_id; ?>"><button style="background-color:#2965ff; padding:5%; border-radius: 10px; border: 5px solid #03fcd3; font-size: 25px; cursor:pointer; font-weight:bold;padding:1%;color:white;">Check Booking</button></a>
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/museum/check_booking.php?id=<?php echo $booking_id; ?>"><button style="background-color:#2965ff; padding:5%; border-radius: 10px; border: 5px solid #03fcd3; font-size: 25px; cursor:pointer; font-weight:bold;padding:1%;color:white;">Check Booking</button></a>
             </div>
         </div>
     </div>
