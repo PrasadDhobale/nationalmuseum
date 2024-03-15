@@ -17,7 +17,7 @@
             Please verify your email by clicking.</p>
         
             <div style="text-align: center;">
-                <a href="http://localhost/museum/verifyemail.php?email=<?php echo $email; ?>&id=<?php echo $visitor_id; ?>"><button style="background-color:#2965ff; padding:5%; border-radius: 10px; border: 5px solid #03fcd3; font-size: 25px; cursor:pointer; font-weight:bold;padding:1%;color:white;">Verify Email</button></a>
+                <a href="<?php echo $BASE_URL; ?>verifyemail.php?email=<?php echo $email; ?>&id=<?php echo $visitor_id; ?>"><button style="background-color:#2965ff; padding:5%; border-radius: 10px; border: 5px solid #03fcd3; font-size: 25px; cursor:pointer; font-weight:bold;padding:1%;color:white;">Verify Email</button></a>
             </div>
         </div>        
     </div>

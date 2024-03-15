@@ -1,3 +1,6 @@
+<?php
+include('config.php');
+?>
 <!doctype html>
 <html lang="en">
 
@@ -49,15 +52,15 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav flex">
                     <a class="nav-link active" aria-current="page" href="/museum"><b>Home</b></a>
-                    <a class="nav-link" href="/museum#about"><b>About</b></a>
-                    <a class="nav-link" href="/museum#vision"><b>Vision</b></a>
-                    <a class="nav-link" href="/museum/gallery"><b>Gallery</b></a>
-                    <a class="nav-link" href="/museum/login.php"><b>Book Now..!</b></a>
-                    <a class="nav-link" href="/museum/admin.php"><b>Admin</b></a>
-                    <a class="nav-link" href="/museum/security.php"><b>Security Guard</b></a>
+                    <a class="nav-link" href="<?php echo $BASE_URL; ?>#about"><b>About</b></a>
+                    <a class="nav-link" href="<?php echo $BASE_URL; ?>#vision"><b>Vision</b></a>
+                    <a class="nav-link" href="<?php echo $BASE_URL; ?>gallery"><b>Gallery</b></a>
+                    <a class="nav-link" href="<?php echo $BASE_URL; ?>login.php"><b>Book Now..!</b></a>
+                    <a class="nav-link" href="<?php echo $BASE_URL; ?>admin.php"><b>Admin</b></a>
+                    <a class="nav-link" href="<?php echo $BASE_URL; ?>security.php"><b>Security Guard</b></a>
                 </div>
             </div>
-            <a href="/museum#contact"><button class="btn btn-outline-success my-2 my-sm-0">Contact</button></a>
+            <a href="<?php echo $BASE_URL; ?>#contact"><button class="btn btn-outline-success my-2 my-sm-0">Contact</button></a>
         </div>
     </nav>
     <!-- Navigation bar ends -->

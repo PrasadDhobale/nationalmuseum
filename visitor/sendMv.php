@@ -7,7 +7,7 @@ if(isset($_POST['sendMv'])){
     $url = 'https://www.fast2sms.com/dev/bulk';
     $id = $_SESSION['visitor']['visitor_id'];
     $p = $_SESSION['visitor']['visitor_passwd'];
-    $content = "Click http://localhost/museum/verifyphone.php?id=$id&p=$p to verify.";
+    $content = "Click <?php echo $BASE_URL; ?>verifyphone.php?id=$id&p=$p to verify.";
 
     $fields = array(
         // 'authorization' => "qiPgO3zY0926hxKyVEHCFoBNraS1j4RIMZbtud5lDpJvfw8c7UPwa2JvkK4yr5uC0Ap6oS7lnMWYj3Ox",

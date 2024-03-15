@@ -48,7 +48,7 @@ if(isset($_POST['pay_fees'])){
       "amount"            => $amount,
       "name"              => "National Museum",
       "description"       => "Ticketless Entry Pass",
-      "image"             => "http://localhost/museum/img/logo.png",
+      "image"             => "<?php echo $BASE_URL; ?>img/logo.png",
       "prefill"           => [
       "name"              => $visitor_name,
       "email"             => $email,
