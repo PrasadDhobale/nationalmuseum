@@ -2,7 +2,7 @@
     
     // Enter your host name, database username, password, and database name.
     // If you have not set database password on localhost then set empty.
-    $con = mysqli_connect("localhost","root","","museum");
+    $con = mysqli_connect("localhost","testuser","pass@123","museum");
     
     // Check connection
     if (mysqli_connect_errno()){
